@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <style>
+        body{
+            text-align: center;
+        }
+        ul{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        p{
+            display: inline-block;
+            margin: 10px;
+
+        }
+        
+        li{
+            margin: 0px;
+            padding: 0px;
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1> your contact List </h1>
+    <ul>
+
+        <%for(var i of contact_list){%>
+            <li><p><%=i.name%></p>
+                <p><%=i.phone%></p>
+                <a href="/delete/<%=i._id%>">X</a>
+        <li> 
+            <%}%>
+    </ul>
+
+    <form action="/add_number" method="post">
+        <input type="text" name="name" required>
+        <input type="number" name="phone" required>
+        <button type="submit">Add number</button>
+    </form>
+
+</body>
+</html>
